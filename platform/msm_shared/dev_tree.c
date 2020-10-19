@@ -44,6 +44,7 @@
 
 #define BOOT_DEV_MAX_LEN        64
 #define NODE_PROPERTY_MAX_LEN   64
+#include <lk2nd-device.h>
 
 struct dt_entry_v1
 {
@@ -1479,6 +1480,7 @@ int update_device_tree(void *fdt, const char *cmdline,
 		}
 	}
 
+	lk2nd_update_device_tree(fdt, cmdline);
 	fdt_pack(fdt);
 
 #if ENABLE_PARTIAL_GOODS_SUPPORT
